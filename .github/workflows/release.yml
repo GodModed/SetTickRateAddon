@@ -9,7 +9,7 @@ jobs:
       - name: Set up JDK 21
         uses: actions/setup-java@v2
         with:
-          distribution: 'openjdk'
+          distribution: 'zulu'
           java-version: '21'
       - name: Build with Maven
       # pull dependencies and clean package
