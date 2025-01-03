@@ -1,0 +1,25 @@
+name: Build and Release
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'openjdk'
+          java-version: '21'
+      - name: Build with Maven
+      # pull dependencies and clean package
+        run: mvn -B package --file pom.xml
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./target/SetTickRateAddon-1.0.jar
+          asset_name: SetTickRateAddon-1.0.jar
+          asset_content_type: application/java-archive
