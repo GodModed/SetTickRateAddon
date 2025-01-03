@@ -1,0 +1,6 @@
+main: social.godmode.SetTickRateAddon
+name: SetTickRateAddon
+version: 1.0
+api-version: '1.21'
+author: GodModed
+depend: [Skript]

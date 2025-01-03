@@ -1,0 +1,7 @@
+command /settickrate <integer> [<player>]:
+    trigger:
+        # check if arg-2 exists
+        if arg-2 is set:
+            set tick rate of arg-2 to arg-1 and freeze their animation
+        else:
+            set tick rate of player to arg-1 and unfreeze their animations
