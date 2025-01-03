@@ -15,12 +15,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.21.3</version>
-            <scope>provided</scope>
-        </dependency>
 <!--        paper dependency -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
