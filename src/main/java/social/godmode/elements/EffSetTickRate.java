@@ -13,7 +13,7 @@ import social.godmode.SetTickRateAddon;
 public class EffSetTickRate extends Effect {
 
     static {
-        Skript.registerEffect(EffSetTickRate.class, "set tick rate of %player% to %number% [and (1:freeze|2:unfreeze) their animation[s]]");
+        Skript.registerEffect(EffSetTickRate.class, "set tick rate of %players% to %number% [and (1:freeze|2:unfreeze) their animation[s]]");
     }
 
     Expression<Player> player;
@@ -22,11 +22,13 @@ public class EffSetTickRate extends Effect {
 
     @Override
     protected void execute(Event event) {
-        Player p = player.getSingle(event);
-        if (p == null) return;
+        Player[] players = player.getArray(event);
+        if (players == null) return;
         float rate = tickRate.getOptionalSingle(event).map(Number::floatValue).orElse(-1f);
         if (rate < 1 || rate > 20) return;
-        SetTickRateAddon.getPlugin(SetTickRateAddon.class).setTickRate(p, rate, frozen);
+        for (Player p : players) {
+            SetTickRateAddon.getPlugin(SetTickRateAddon.class).setTickRate(p, rate, frozen);
+        }
     }
 
     @Override
