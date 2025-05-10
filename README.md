@@ -38,7 +38,7 @@ To build SkriptClientTickRate from source, you need to have Maven installed.
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/SkriptClientTickRate.git
+    git clone https://github.com/GodModed/SkriptClientTickRate.git
     cd SkriptClientTickRate
     ```
 
